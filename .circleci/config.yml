@@ -12,6 +12,8 @@ jobs:
       # overwrites (truncates) the earlier all.knownips.circleci.com.txt
       - run: |
           dig all.knownips.circleci.com A +short | sort > all.knownips.circleci.com.txt
+      - run: |
+          cat all.knownips.circleci.com.txt
       # git diff returns non-zero exit if there has been a difference
       - run: |
           git diff all.knownips.circleci.com.txt
