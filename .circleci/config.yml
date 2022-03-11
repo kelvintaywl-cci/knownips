@@ -2,6 +2,7 @@ version: 2.1
 
 jobs:
   get_all_known_ips:
+    resource_class: small
     docker:
       - image: buildpack-deps:impish-scm
     steps:
