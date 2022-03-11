@@ -3,9 +3,11 @@ version: 2.1
 jobs:
   get_all_known_ips:
     docker:
-      - image: cimg/base:stable
+      - image: buildpack-deps:impish-scm
     steps:
       - checkout
+      - run: |
+          apt update && apt install dnsutils
       # overwrites (truncates) the earlier all.knownips.circleci.com.txt
       - run: |
           dig all.knownips.circleci.com A +short | sort > all.knownips.circleci.com.txt
