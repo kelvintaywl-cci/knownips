@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run: |
-          apt update && apt install dnsutils
+          apt update && apt install -y dnsutils
       # overwrites (truncates) the earlier all.knownips.circleci.com.txt
       - run: |
           dig all.knownips.circleci.com A +short | sort > all.knownips.circleci.com.txt
